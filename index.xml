@@ -6,7 +6,27 @@
     <description>Recent content on Life As I Know It!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Jun 2021 07:05:51 +0000</lastBuildDate><atom:link href="https://soubhagyarnayak.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Jul 2021 12:27:41 +0000</lastBuildDate><atom:link href="https://soubhagyarnayak.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moving Blog to Staticsite</title>
+      <link>https://soubhagyarnayak.github.io/posts/moving-blog-to-staticsite/</link>
+      <pubDate>Sun, 18 Jul 2021 12:27:41 +0000</pubDate>
+      
+      <guid>https://soubhagyarnayak.github.io/posts/moving-blog-to-staticsite/</guid>
+      <description>Two years back, I have moved my blog from wordpress.com to hosted wordpress on Godaddy. The subscription for 2 years is going to end soon. So I was in a dilemma whether to renew my subscription or try some alternative. After much thought, I have decided to move my blog to a static website hosted on Netlify.
+Why to use static website for a blog? Wordpress is the most popular tool for hosting web pages and blogs.</description>
+    </item>
+    
+    <item>
+      <title>New Amazon Leadership Principles</title>
+      <link>https://soubhagyarnayak.github.io/posts/new-amazon-leadership-principles/</link>
+      <pubDate>Fri, 02 Jul 2021 08:32:56 +0000</pubDate>
+      
+      <guid>https://soubhagyarnayak.github.io/posts/new-amazon-leadership-principles/</guid>
+      <description>I am a big fan of Amazon leadership principles. Those principles help one to be disciplined and take right decisions. I do not work at Amazon. Still I revisit the leadership principles from time to time. I also reflect my own behavior against those.
+Amazon has just added two more leadership principles. This has been done just before Jeff Bezos left Amazon. Jeff Bezos is the founder of Amazon and has shaped the company and its culture.</description>
+    </item>
+    
     <item>
       <title>Let It Go</title>
       <link>https://soubhagyarnayak.github.io/posts/let-it-go/</link>
@@ -14,6 +34,47 @@
       
       <guid>https://soubhagyarnayak.github.io/posts/let-it-go/</guid>
       <description>In our lives we get attach to a lot of things. We hold on to material things. We hold on to our old conceptions, opinions and prejudices. Developing this sort of attachment is common. Often this is needed. Commitment, dedication and perseverance are needed to succeed in our professional and personal lives. But at times we must let these things go. We must refine our understanding and if needed change our course of action.</description>
+    </item>
+    
+    <item>
+      <title>Reflection on Effective Reading</title>
+      <link>https://soubhagyarnayak.github.io/posts/reflection-on-effective-reading/</link>
+      <pubDate>Mon, 05 Apr 2021 10:20:00 +0000</pubDate>
+      
+      <guid>https://soubhagyarnayak.github.io/posts/reflection-on-effective-reading/</guid>
+      <description>Reading is an important skill for everyone. Reading helps us to gather information, understand concepts and connect with others. If you are a knowledge worker, then you need to read fast. But reading fast alone won’t help. Gathering of knowledge must be followed with processing of the knowledge, retention of knowledge and utilisation of knowledge.
+Understanding of content Processing of knowledge will vary from reading material to reading material. One need not put a lot of effort while reading news.</description>
+    </item>
+    
+    <item>
+      <title>Perfection and Procrastination</title>
+      <link>https://soubhagyarnayak.github.io/posts/perfection-and-procrastination/</link>
+      <pubDate>Thu, 11 Mar 2021 09:30:47 +0000</pubDate>
+      
+      <guid>https://soubhagyarnayak.github.io/posts/perfection-and-procrastination/</guid>
+      <description>Procrastination is one of my weaknesses. I have seen many people having the same problem. People generally associate procrastination with laziness. But even workaholics procrastinate on many things. I associate procrastination with lack of discipline. This post is about perfection and procrastination which may sound weird. But I have often felt that a wish for perfection makes me procrastinate.
+At times we aim for perfection. It is supposed to be a good thing.</description>
+    </item>
+    
+    <item>
+      <title>Streaming Video on the Web</title>
+      <link>https://soubhagyarnayak.github.io/posts/streaming-video-on-the-web/</link>
+      <pubDate>Fri, 05 Feb 2021 08:20:23 +0000</pubDate>
+      
+      <guid>https://soubhagyarnayak.github.io/posts/streaming-video-on-the-web/</guid>
+      <description>This is a short post on current technologies for streaming video on the web.
+Need for streaming video on the web Generally people view textual content on the web. There are a few exceptions like Youtube, Facebook and Vimeo where people consume a lot of video content. But video and audio are two underused media on the web. Rise in the popularity of video serving sites like Youtube and apps like Tiktok validates the consumer demand for video.</description>
+    </item>
+    
+    <item>
+      <title>Dropwizard</title>
+      <link>https://soubhagyarnayak.github.io/posts/drop-wizard/</link>
+      <pubDate>Sat, 23 Jan 2021 22:20:37 +0000</pubDate>
+      
+      <guid>https://soubhagyarnayak.github.io/posts/drop-wizard/</guid>
+      <description>In Java world, the developers have lots of framework to choose to develop web services and web sites. But most of the frameworks are bulky as they try to support a lot of features. Dropwizard is a lightweight opinionated framework for developing RESTful web services in Java.
+Setting up Dropwizard is easy to setup using Maven archetype. One can create a Dropwizard project by the following command
+1mvn archetype:generate 2 -DarchetypeGroupId=io.</description>
     </item>
     
     <item>
@@ -27,6 +88,16 @@ How to do benchmarking using BenchmarkDotNet I generally make a standalone app t
     </item>
     
     <item>
+      <title>Python Virtual Environment</title>
+      <link>https://soubhagyarnayak.github.io/posts/python-virtual-environment/</link>
+      <pubDate>Thu, 23 Aug 2018 07:05:13 +0000</pubDate>
+      
+      <guid>https://soubhagyarnayak.github.io/posts/python-virtual-environment/</guid>
+      <description>Virtual environments help to have different applications depending upon 2 different versions of a same dependency to be usable on the same machine.
+As an illustration, let us say App1 has a dependency on version 1 of lib1. If we are installing the application App1 on our machine, then by default the site-packages will contain version 1 of lib1. Now if the user wants to use App2 which has a dependency on version 2 of lib1 then we are in trouble.</description>
+    </item>
+    
+    <item>
       <title>Competitive Programming Resources</title>
       <link>https://soubhagyarnayak.github.io/posts/competitive-programming-resources/</link>
       <pubDate>Fri, 20 Apr 2018 06:58:59 +0000</pubDate>
@@ -34,6 +105,15 @@ How to do benchmarking using BenchmarkDotNet I generally make a standalone app t
       <guid>https://soubhagyarnayak.github.io/posts/competitive-programming-resources/</guid>
       <description>Competitive programming has been always appealing to me. I used to consider it as one of my hobbies. I have blogged about my experience and the reason for participating in Google CodeJam in this post. Of late I am not able to find time due to personal and professional work. The following are some really nice competitive programming resources.
 Online Contests  Google CodeJam Top Coder Facebook Hacker Cup Code Forces Yandex Contest  MOOCs  Competitive Programmer&amp;rsquo;s Core Skills How to Win Coding Competitions: Secrets of Champions  Books  Competitive Programmer&amp;rsquo;s Handbook  Training  Top Coder tutorials Yandex Contest Tutorials ITMO University Training Center  Problem Sets  Sphere Online Judge Timus Online Judge  Contest for Students  ACM ICPC IOI  </description>
+    </item>
+    
+    <item>
+      <title>Google Codejam</title>
+      <link>https://soubhagyarnayak.github.io/posts/google-codejam/</link>
+      <pubDate>Mon, 09 May 2011 09:04:36 +0000</pubDate>
+      
+      <guid>https://soubhagyarnayak.github.io/posts/google-codejam/</guid>
+      <description>Why I sit for Google CodeJam Every year coders around the world compete with each other at Google CodeJam. Basically you need to come up with solutions for a set of problems. Solving the problems demand problem solving skills [:)]. Actually you need to be good at programming, algorithms and mathematics to solve the problems fast. Top Coder is another place where you can compete with the best and the brightest to solve a problem fast.</description>
     </item>
     
   </channel>

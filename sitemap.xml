@@ -2,20 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://soubhagyarnayak.github.io/</loc>
+    <lastmod>2021-07-18T12:27:41+00:00</lastmod>
+  </url><url>
+    <loc>https://soubhagyarnayak.github.io/posts/moving-blog-to-staticsite/</loc>
+    <lastmod>2021-07-18T12:27:41+00:00</lastmod>
+  </url><url>
+    <loc>https://soubhagyarnayak.github.io/posts/</loc>
+    <lastmod>2021-07-18T12:27:41+00:00</lastmod>
+  </url><url>
+    <loc>https://soubhagyarnayak.github.io/posts/new-amazon-leadership-principles/</loc>
+    <lastmod>2021-07-02T08:32:56+00:00</lastmod>
+  </url><url>
     <loc>https://soubhagyarnayak.github.io/categories/</loc>
     <lastmod>2021-06-24T07:05:51+00:00</lastmod>
   </url><url>
     <loc>https://soubhagyarnayak.github.io/posts/let-it-go/</loc>
     <lastmod>2021-06-24T07:05:51+00:00</lastmod>
   </url><url>
-    <loc>https://soubhagyarnayak.github.io/</loc>
-    <lastmod>2021-06-24T07:05:51+00:00</lastmod>
-  </url><url>
     <loc>https://soubhagyarnayak.github.io/categories/opinion/</loc>
     <lastmod>2021-06-24T07:05:51+00:00</lastmod>
   </url><url>
-    <loc>https://soubhagyarnayak.github.io/posts/</loc>
-    <lastmod>2021-06-24T07:05:51+00:00</lastmod>
+    <loc>https://soubhagyarnayak.github.io/posts/reflection-on-effective-reading/</loc>
+    <lastmod>2021-04-05T10:20:00+00:00</lastmod>
+  </url><url>
+    <loc>https://soubhagyarnayak.github.io/posts/perfection-and-procrastination/</loc>
+    <lastmod>2021-03-11T09:30:47+00:00</lastmod>
+  </url><url>
+    <loc>https://soubhagyarnayak.github.io/posts/streaming-video-on-the-web/</loc>
+    <lastmod>2021-02-05T08:20:23+00:00</lastmod>
+  </url><url>
+    <loc>https://soubhagyarnayak.github.io/posts/drop-wizard/</loc>
+    <lastmod>2021-01-23T22:20:37+00:00</lastmod>
   </url><url>
     <loc>https://soubhagyarnayak.github.io/posts/benchmarkdotnet/</loc>
     <lastmod>2020-11-01T07:20:18+00:00</lastmod>
@@ -23,11 +41,17 @@
     <loc>https://soubhagyarnayak.github.io/categories/programming/</loc>
     <lastmod>2020-11-01T07:20:18+00:00</lastmod>
   </url><url>
+    <loc>https://soubhagyarnayak.github.io/posts/python-virtual-environment/</loc>
+    <lastmod>2018-08-23T07:05:13+00:00</lastmod>
+  </url><url>
     <loc>https://soubhagyarnayak.github.io/posts/competitive-programming-resources/</loc>
     <lastmod>2018-04-20T06:58:59+00:00</lastmod>
   </url><url>
     <loc>https://soubhagyarnayak.github.io/categories/hobby/</loc>
     <lastmod>2018-04-20T06:58:59+00:00</lastmod>
+  </url><url>
+    <loc>https://soubhagyarnayak.github.io/posts/google-codejam/</loc>
+    <lastmod>2011-05-09T09:04:36+00:00</lastmod>
   </url><url>
     <loc>https://soubhagyarnayak.github.io/tags/</loc>
   </url>
