@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hobby on Life As I Know It!</title>
+    <link>http://soubhagyarnayak.github.io/categories/hobby/</link>
+    <description>Recent content in hobby on Life As I Know It!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Apr 2018 06:58:59 +0000</lastBuildDate><atom:link href="http://soubhagyarnayak.github.io/categories/hobby/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Competitive Programming Resources</title>
+      <link>http://soubhagyarnayak.github.io/posts/competitive-programming-resources/</link>
+      <pubDate>Fri, 20 Apr 2018 06:58:59 +0000</pubDate>
+      
+      <guid>http://soubhagyarnayak.github.io/posts/competitive-programming-resources/</guid>
+      <description>Competitive programming has been always appealing to me. I used to consider it as one of my hobbies. I have blogged about my experience and the reason for participating in Google CodeJam in this post. Of late I am not able to find time due to personal and professional work. The following are some really nice competitive programming resources.
+Online Contests  Google CodeJam Top Coder Facebook Hacker Cup Code Forces Yandex Contest  MOOCs  Competitive Programmer&amp;rsquo;s Core Skills How to Win Coding Competitions: Secrets of Champions  Books  Competitive Programmer&amp;rsquo;s Handbook  Training  Top Coder tutorials Yandex Contest Tutorials ITMO University Training Center  Problem Sets  Sphere Online Judge Timus Online Judge  Contest for Students  ACM ICPC IOI  </description>
+    </item>
+    
+  </channel>
+</rss>

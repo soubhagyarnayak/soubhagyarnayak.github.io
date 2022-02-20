@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> BenchmarkDotNet | Life As I Know It!</title>
+  <link rel = 'canonical' href = 'http://soubhagyarnayak.github.io/posts/benchmarkdotnet/'>
+  <meta name="description" content="Hi my name is Soubhagya. Thanks for visiting my homepage. I am from India. I work as a software engineer. Apart from designing and coding software systems, I like reading, writing and playing chess. I am interested in aerospace, robotics and computer graphics.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="BenchmarkDotNet" />
+<meta property="og:description" content="BenchmarkDotNet is a great tool for performance benchmarking of .Net code." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://soubhagyarnayak.github.io/posts/benchmarkdotnet/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-11-01T07:20:18+00:00" />
+<meta property="article:modified_time" content="2020-11-01T07:20:18+00:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="BenchmarkDotNet"/>
+<meta name="twitter:description" content="BenchmarkDotNet is a great tool for performance benchmarking of .Net code."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="http://soubhagyarnayak.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="http://soubhagyarnayak.github.io/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" http://soubhagyarnayak.github.io/posts/competitive-programming-resources/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="http://soubhagyarnayak.github.io/posts/let-it-go/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f&text=BenchmarkDotNet" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f&title=BenchmarkDotNet" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f&is_video=false&description=BenchmarkDotNet" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=BenchmarkDotNet&body=Check out this article: http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f&title=BenchmarkDotNet" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f&title=BenchmarkDotNet" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f&name=BenchmarkDotNet&description=BenchmarkDotNet%20is%20a%20great%20tool%20for%20performance%20benchmarking%20of%20.Net%20code." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f&t=BenchmarkDotNet" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#how-to-do-benchmarking-using--benchmarkdotnet">How to do benchmarking using  BenchmarkDotNet</a></li>
+    <li><a href="#advanced-concepts">Advanced Concepts</a>
+      <ul>
+        <li><a href="#bringing-variations-in-input-data">Bringing variations in input data</a></li>
+        <li><a href="#measuring-memory-and-other-diagnosers">Measuring memory and other diagnosers</a></li>
+        <li><a href="#generating-plots-from-benchmarking-data">Generating plots from benchmarking data</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        BenchmarkDotNet
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2020-11-01 07:20:18 &#43;0000 UTC" itemprop="datePublished">2020-11-01</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          3 minute read
+        </div>
+        
+        
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <p>While developing software, we often have the need to benchmark some implementations and compare the performance. Every benchmarking task has common boiler plate code which is tedious and repetitive. <a href="https://fransbouma.github.io/BenchmarkDotNet/">BenchmarkDotNet</a> helps in avoiding this boiler plate code and focus on the code which needs to be benchmarked.</p>
+<h2 id="how-to-do-benchmarking-using--benchmarkdotnet">How to do benchmarking using  BenchmarkDotNet</h2>
+<p>I generally make a standalone app to run the benchmarks. The standalone app needs to take a dependency on BenchmarkDotNet nuget package.
+The code shown below demonstrates how to benchmark StringBuilder vs string concatenation performance. This code sample can be used as a template for any types of benchmarking.</p>
+<!-- raw HTML omitted -->
+<p>Then we need to build code. While building, please make sure to use Release option and not Debug.
+Once the exe is built, we can go to the bin\Release directory and run the exe from command prompt. It will take some time to run the code and derive statistically significant data points. The best part is that one need not write any boiler plate code or understand deep statistics concept to benchmark code. BenchmarkDotNet takes care of this.</p>
+<p>The following image shows the data shown in command prompt.
+<a href="!BenchmarkDotNetResult.png">!BenchmarkDotNet output on command line</a></p>
+<p>BenchmarkDotNet also stores the result in the bin\Release\BenchmarkDotNet.Artifacts directory. Depending upon the configuration, BenchmarkDotNet will generate CSV, MarkDown, HTML and even R plots in the artifacts directory.</p>
+<h2 id="advanced-concepts">Advanced Concepts</h2>
+<h3 id="bringing-variations-in-input-data">Bringing variations in input data</h3>
+<p>If we see the above result, then we will observe that the performance of string concat comparable to using StringBuilder. To get more insights we can bring more variations in the input. In the following altered code, we are changing the number of strings to concat. BenchaMarkDotNet helps us in doing this pretty easily.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#6272a4">//The following attribute specified parameters for benchmark runs
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#6272a4"></span><span style="color:#50fa7b">[Params(3, 7, 21, 50, 100)]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#ff79c6">public</span> <span style="color:#8be9fd">int</span> NumberOfSubParts;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#6272a4">//GetRandomStrings has been altered to use the parameter value
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#6272a4"></span><span style="color:#ff79c6">private</span> <span style="color:#8be9fd">string</span>[] GetRandomStrings()
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>{
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    <span style="color:#8be9fd">string</span>[] result = <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">string</span>[NumberOfSubParts];
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>    <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i=<span style="color:#bd93f9">0</span>; i&lt;NumberOfSubParts; i++)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        result[i] = RandomString(random.Next(<span style="color:#bd93f9">7</span>));
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>    <span style="color:#ff79c6">return</span> result;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>}
+</code></pre></div><h3 id="measuring-memory-and-other-diagnosers">Measuring memory and other diagnosers</h3>
+<p>By default, BenchmarkDotNet measures time of execution. We can use <a href="https://github.com/dotnet/BenchmarkDotNet/blob/master/docs/articles/configs/diagnosers.md">other diagnosers available</a> based on our need. One can configure additional diagnosers via config or as an attribute to Benchmark class as shown below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#50fa7b">[MemoryDiagnoser]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">StringBuilderPerformance</span>
+</code></pre></div><h3 id="generating-plots-from-benchmarking-data">Generating plots from benchmarking data</h3>
+<p>If you have R installed and R_Home environment variable configured, then BenchmarkDotNet can generate plots for easier analysis of benchmarking data.</p>
+<p>The final code with all the changes is shown below</p>
+<!-- raw HTML omitted -->
+<p>The summary result is shown below. One can observe that StringBuilder performs with less memory allocation even though the performance is nearly same in comparison to string concatenation.</p>
+<pre tabindex="0"><code>BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
+Intel Core i7-8665U CPU 1.90GHz (Coffee Lake), 1 CPU, 8 logical and 4 physical cores
+  [Host]     : .NET Framework 4.8 (4.8.4250.0), X86 LegacyJIT
+  DefaultJob : .NET Framework 4.8 (4.8.4250.0), X86 LegacyJIT
+</code></pre><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>NumberOfSubParts</th>
+<th>Mean</th>
+<th>Error</th>
+<th>StdDev</th>
+<th>Median</th>
+<th>Gen 0</th>
+<th>Gen 1</th>
+<th>Gen 2</th>
+<th>Allocated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FormStringUsingConcat</td>
+<td>3</td>
+<td>5.306 μs</td>
+<td>0.4137 μs</td>
+<td>1.200 μs</td>
+<td>5.392 μs</td>
+<td>0.1144</td>
+<td>–</td>
+<td>–</td>
+<td>483</td>
+</tr>
+<tr>
+<td>FormStringUsingStringBuilder</td>
+<td>3</td>
+<td>6.118 μs</td>
+<td>0.3856 μs</td>
+<td>1.137 μs</td>
+<td>5.943 μs</td>
+<td>0.1221</td>
+<td>–</td>
+<td>–</td>
+<td>539</td>
+</tr>
+<tr>
+<td>FormStringUsingConcat</td>
+<td>7</td>
+<td>13.906 μs</td>
+<td>0.6013 μs</td>
+<td>1.764 μs</td>
+<td>13.503 μs</td>
+<td>0.2823</td>
+<td>–</td>
+<td>–</td>
+<td>1212</td>
+</tr>
+<tr>
+<td>FormStringUsingStringBuilder</td>
+<td>7</td>
+<td>13.140 μs</td>
+<td>0.6743 μs</td>
+<td>1.956 μs</td>
+<td>12.898 μ</td>
+<td>0.2747</td>
+<td>–</td>
+<td>–</td>
+<td>1182</td>
+</tr>
+<tr>
+<td>FormStringUsingConcat</td>
+<td>21</td>
+<td>44.990 μs</td>
+<td>2.3703 μs</td>
+<td>6.989 μs</td>
+<td>43.840 μs</td>
+<td>1.0376</td>
+<td>–</td>
+<td>–</td>
+<td>4416</td>
+</tr>
+<tr>
+<td>FormStringUsingStringBuilder</td>
+<td>21</td>
+<td>35.547 μs</td>
+<td>3.0001 μs</td>
+<td>8.704 μs</td>
+<td>35.307 μs</td>
+<td>0.7935</td>
+<td>–</td>
+<td>–</td>
+<td>3420</td>
+</tr>
+<tr>
+<td>FormStringUsingConcat</td>
+<td>50</td>
+<td>103.442 μs</td>
+<td>8.2811 μs</td>
+<td>24.417 μs</td>
+<td>104.999 μs</td>
+<td>3.3569</td>
+<td>–</td>
+<td>–</td>
+<td>14255</td>
+</tr>
+<tr>
+<td>FormStringUsingStringBuilder</td>
+<td>50</td>
+<td>86.727 μs</td>
+<td>9.4464 μs</td>
+<td>27.853 μs</td>
+<td>96.322 μs</td>
+<td>1.8921</td>
+<td>–</td>
+<td>–</td>
+<td>8033</td>
+</tr>
+<tr>
+<td>FormStringUsingConcat</td>
+<td>100</td>
+<td>212.005 μs</td>
+<td>19.6899 μs</td>
+<td>58.056 μs</td>
+<td>214.728 μs</td>
+<td>9.7656</td>
+<td>–</td>
+<td>–</td>
+<td>41388</td>
+</tr>
+<tr>
+<td>FormStringUsingStringBuilder</td>
+<td>100</td>
+<td>198.535 μs</td>
+<td>11.4919 μs</td>
+<td>33.884 μs</td>
+<td>200.280 μs</td>
+<td>3.7842</td>
+<td>–</td>
+<td>–</td>
+<td>15909</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References</h2>
+<p><a href="https://mattwarren.org/2016/02/17/adventures-in-benchmarking-memory-allocations/">https://mattwarren.org/2016/02/17/adventures-in-benchmarking-memory-allocations/</a></p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+  <div class="blog-post-comments">
+    
+      <div id="cactus-comments-thread">
+  <script>
+  initComments({
+    node: document.getElementById("cactus-comments-thread"),
+    defaultHomeserverUrl: 'https:\/\/matrix.cactus.chat:8448',
+    serverName: 'cactus.chat',
+    siteName: "your_cactus_comments_sitename",
+    commentSectionId: "\/posts\/benchmarkdotnet\/"
+  })
+</script>
+</div>
+
+    
+  </div>
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Writings</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#how-to-do-benchmarking-using--benchmarkdotnet">How to do benchmarking using  BenchmarkDotNet</a></li>
+    <li><a href="#advanced-concepts">Advanced Concepts</a>
+      <ul>
+        <li><a href="#bringing-variations-in-input-data">Bringing variations in input data</a></li>
+        <li><a href="#measuring-memory-and-other-diagnosers">Measuring memory and other diagnosers</a></li>
+        <li><a href="#generating-plots-from-benchmarking-data">Generating plots from benchmarking data</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f&text=BenchmarkDotNet" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f&title=BenchmarkDotNet" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f&is_video=false&description=BenchmarkDotNet" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=BenchmarkDotNet&body=Check out this article: http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f&title=BenchmarkDotNet" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f&title=BenchmarkDotNet" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f&name=BenchmarkDotNet&description=BenchmarkDotNet%20is%20a%20great%20tool%20for%20performance%20benchmarking%20of%20.Net%20code." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2fsoubhagyarnayak.github.io%2fposts%2fbenchmarkdotnet%2f&t=BenchmarkDotNet" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  Life As I Know It! 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>

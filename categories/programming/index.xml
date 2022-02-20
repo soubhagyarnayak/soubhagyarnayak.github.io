@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming on Life As I Know It!</title>
+    <link>http://soubhagyarnayak.github.io/categories/programming/</link>
+    <description>Recent content in programming on Life As I Know It!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Nov 2020 07:20:18 +0000</lastBuildDate><atom:link href="http://soubhagyarnayak.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BenchmarkDotNet</title>
+      <link>http://soubhagyarnayak.github.io/posts/benchmarkdotnet/</link>
+      <pubDate>Sun, 01 Nov 2020 07:20:18 +0000</pubDate>
+      
+      <guid>http://soubhagyarnayak.github.io/posts/benchmarkdotnet/</guid>
+      <description>While developing software, we often have the need to benchmark some implementations and compare the performance. Every benchmarking task has common boiler plate code which is tedious and repetitive. BenchmarkDotNet helps in avoiding this boiler plate code and focus on the code which needs to be benchmarked.
+How to do benchmarking using BenchmarkDotNet I generally make a standalone app to run the benchmarks. The standalone app needs to take a dependency on BenchmarkDotNet nuget package.</description>
+    </item>
+    
+  </channel>
+</rss>
