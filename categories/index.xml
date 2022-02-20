@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Life As I Know It!</title>
-    <link>http://soubhagyarnayak.github.io/categories/</link>
+    <link>https://soubhagyarnayak.github.io/categories/</link>
     <description>Recent content in Categories on Life As I Know It!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Jun 2021 07:05:51 +0000</lastBuildDate><atom:link href="http://soubhagyarnayak.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Jun 2021 07:05:51 +0000</lastBuildDate><atom:link href="https://soubhagyarnayak.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>opinion</title>
-      <link>http://soubhagyarnayak.github.io/categories/opinion/</link>
+      <link>https://soubhagyarnayak.github.io/categories/opinion/</link>
       <pubDate>Thu, 24 Jun 2021 07:05:51 +0000</pubDate>
       
-      <guid>http://soubhagyarnayak.github.io/categories/opinion/</guid>
+      <guid>https://soubhagyarnayak.github.io/categories/opinion/</guid>
       <description></description>
     </item>
     
     <item>
       <title>programming</title>
-      <link>http://soubhagyarnayak.github.io/categories/programming/</link>
+      <link>https://soubhagyarnayak.github.io/categories/programming/</link>
       <pubDate>Sun, 01 Nov 2020 07:20:18 +0000</pubDate>
       
-      <guid>http://soubhagyarnayak.github.io/categories/programming/</guid>
+      <guid>https://soubhagyarnayak.github.io/categories/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hobby</title>
-      <link>http://soubhagyarnayak.github.io/categories/hobby/</link>
+      <link>https://soubhagyarnayak.github.io/categories/hobby/</link>
       <pubDate>Fri, 20 Apr 2018 06:58:59 +0000</pubDate>
       
-      <guid>http://soubhagyarnayak.github.io/categories/hobby/</guid>
+      <guid>https://soubhagyarnayak.github.io/categories/hobby/</guid>
       <description></description>
     </item>
     
